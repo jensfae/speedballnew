@@ -1,0 +1,65 @@
+<div>
+  <div class="container">
+    <form [formGroup]="angForm" novalidate>
+      <div class="row form-group">
+      <div class="col ">
+        <label class="">Name des Werfers</label>
+        <input type="text" class="form-control" formControlName="wurfname" #wurfname />
+      </div>
+
+      <div class="col">
+        <label class="">Name</label>
+        <input type="text" class="form-control" formControlName="name" #name/>
+      </div>
+      <div class="col">
+        <label class="">Alter</label>
+        <input type="number" class="form-control" formControlName="alter" #alter/>
+
+      </div>
+
+
+      <div class="col">
+          <label class="">Geschlecht</label>
+          <select class="custom-select" id="inputGroupSelect02" formControlName="geschlecht" #geschlecht>
+            <option selected>Wähle...</option>
+            <option value="w">weiblich</option>
+            <option value="m">männlich</option>
+            
+          </select>
+          
+        </div>
+    </div>
+    <div *ngIf="angForm.controls['wurfname'].invalid && (angForm.controls['wurfname'].dirty || angForm.controls['wurfname'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['wurfname'].errors.required">
+        Wurfname ist ein Prlichtfeld.
+      </div>
+    </div>
+      <span class="row form-group">
+        <div class="col">
+        <label class="">EMail</label>
+        <input type="email" class="form-control" formControlName="email" #email/>
+      </div>
+    </span>
+
+    <div class="row form-group">
+      <div class="col">
+        <label class="">Wurf 1:</label>
+        <input type="number" class="form-control" formControlName="wurf1" #wurf1/>
+      </div>
+      <div class="col">
+        <label class="">Wurf 2:</label>
+        <input type="number" class="form-control" formControlName="wurf2" #wurf2/>
+      </div>
+      <div class="col"> 
+        <label class="">Wurf 3:</label>
+        <input type="number" class="form-control" formControlName="wurf3" #wurf3/>
+      </div>
+    </div>
+        <div class="row col formGroup">
+          <button (click)="addWurf(wurfname.value, name.value, email.value, wurf1.value, wurf2.value, wurf3.value, alter.value, geschlecht.value)"  
+          [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+        
+    </form>
+  </div>
+</div>

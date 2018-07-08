@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Name der Veranstaltung</label>
+        <input type="text" class="form-control" formControlName="name" #name />
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Share Price</label>
+        <input type="text" class="form-control" formControlName="price" #price/>
+      </div>
+      <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['price'].errors.required">
+          Price is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Datum der Veranstaltung</label>
+        <input type="datetime-local" class="form-control" placeholder="dd.mm.yyyy" formControlName="datumvon" ngbDatepicker name="datumvon" #datumvon #db="ngbDatepicker"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="db.toggle()" type="button">
+            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+        </div>
+      </div>
+        <div class="form-group">
+          <button (click)="addShare(name.value, price.value, datumvon.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+  </div>
+</div>

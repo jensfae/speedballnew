@@ -2,10 +2,6 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
-};
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
@@ -13,3 +9,15 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCBk1QqFB8p9nJkB1rujcuvSoqmI0KfenA",
+    authDomain: "speedball-dfc4c.firebaseapp.com",
+    databaseURL: "https://speedball-dfc4c.firebaseio.com",
+    projectId: "speedball-dfc4c",
+    storageBucket: "speedball-dfc4c.appspot.com",
+    messagingSenderId: "695032799791"
+  }
+};
